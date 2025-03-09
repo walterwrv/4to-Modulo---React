@@ -1,15 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+
 import './App.css'
+import Header from '/src/components/Header';
+import MoviesList from '/src/components/MoviesList ';
+import WatchlistModal from '/src/components/WatchlistModal';
 
 function App() {
-  const [count, setCount] = useState(0)
+    
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [watchlist, setWatchlist] = useState([])
+    
+    useEffect(() => {
+      const storedWatchlist = localStorage.getItem('peliculas');
+      if (storedWatchlist) {
+        setWatchlist(JSON.parse(storedWatchlist));
 
+      }
+    }, []);
+
+    
+  
   return (
     <>
-      <h1 className='bg-red-900'> HOLA MUNDO</h1>
       
+      <Header setIsModalOpen={setIsModalOpen} />
+      
+      <WatchlistModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        watchlist={watchlist}
+        setWatchlist={setWatchlist}
+      />
+
+      <MoviesList watchlist={watchlist} setWatchlist={setWatchlist} />
     </>
   )
 }
