@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const WatchlistModal = ({ isModalOpen, setIsModalOpen, watchlist, setWatchlist }) => {
     if (!isModalOpen) return null;
@@ -8,29 +8,43 @@ const WatchlistModal = ({ isModalOpen, setIsModalOpen, watchlist, setWatchlist }
     const removerFromWatchlist = (id) => {
         const newWatchlist = watchlist.filter((movie) => movie.id !== id);
         setWatchlist(newWatchlist);
-        localStorage.setItem('peliculas', JSON.stringify(newWatchlist)); // Actualizar localStorage
+        localStorage.setItem("peliculas", JSON.stringify(newWatchlist));
     };
-    
 
     return (
-        <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center'>
-            <div className='bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md relative'>
-                <p>WatchlistModal</p>
-                <button onClick={onClose}>✖️</button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm">
+            <div className="bg-white rounded-2xl shadow-xl p-6 w-11/12 max-w-md relative">
+                {/* Encabezado del modal */}
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-lg font-semibold text-gray-800">Watchlist</h2>
+                    <button
+                        onClick={onClose}
+                        className="text-gray-500 hover:text-red-500 transition-all text-xl"
+                    >
+                        ✖
+                    </button>
+                </div>
+
+                {/* Contenido del modal */}
                 {watchlist.length === 0 ? (
-                    <p>No hay pelis en la lista</p>
+                    <p className="text-gray-600 text-center">No hay películas en la lista</p>
                 ) : (
-                    watchlist.map((movie) => (
-                        <div key={movie.id}>
-                            <p>{movie.name}</p>
-                            <button
-                                className='bg-red-500 p-2'
-                                onClick={() => removerFromWatchlist(movie.id)}
+                    <ul>
+                        {watchlist.map((movie) => (
+                            <li
+                                key={movie.id}
+                                className="flex justify-between items-center bg-gray-100 rounded-lg p-3 mb-2 shadow-sm"
                             >
-                                Remover peli
-                            </button>
-                        </div>
-                    ))
+                                <span className="text-gray-800 font-medium">{movie.name}</span>
+                                <button
+                                    className="bg-red-600 text-white px-3 py-1 rounded-md shadow-md transition-all duration-300 hover:bg-red-700 active:scale-95"
+                                    onClick={() => removerFromWatchlist(movie.id)}
+                                >
+                                    Remover
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 )}
             </div>
         </div>
@@ -38,3 +52,4 @@ const WatchlistModal = ({ isModalOpen, setIsModalOpen, watchlist, setWatchlist }
 };
 
 export default WatchlistModal;
+

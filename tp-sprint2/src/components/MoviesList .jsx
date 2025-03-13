@@ -18,12 +18,12 @@ const MoviesList = ({ watchlist, setWatchlist }) => {
       {movies.map((movie) => (
         <div
           key={movie.id}
-          className='bg-gray-700 p-4 rounded shadow-md text-center'
+          className='bg-gray-500 p-4 rounded shadow-md text-center'
         >
           <img src={`src/assets/imgMovies/${movie.img}.jpg`} />
           <h3 className='text-lg font-semibold'>{movie.name}</h3>
           <button
-            className='bg-green-500 p-2'
+            className='bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-green-700 hover:shadow-lg active:scale-95'
             onClick={() => addToWatchlist(movie) }
           >
             Agregar a watchlist
