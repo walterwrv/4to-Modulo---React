@@ -22,17 +22,18 @@ function App() {
   
   return (
     <>
-      
-      <Header setIsModalOpen={setIsModalOpen} />
-      
-      <WatchlistModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        watchlist={watchlist}
-        setWatchlist={setWatchlist}
-      />
+      <div className='bg-gray-700'>
+        <Header setIsModalOpen={setIsModalOpen} />
+        
+        <WatchlistModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          watchlist={watchlist}
+          setWatchlist={setWatchlist}
+        />
 
-      <MoviesList watchlist={watchlist} setWatchlist={setWatchlist} />
+        <MoviesList watchlist={watchlist} setWatchlist={setWatchlist} />.
+      </div>
     </>
   )
 }
