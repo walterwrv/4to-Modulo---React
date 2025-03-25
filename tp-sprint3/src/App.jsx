@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react'
 
+import { CartProvider } from "./context/CartContext";
 import './App.css'
+import { ThemeProvider } from "./context/ThemeContext";
+import MainContent from "./components/MainContent";
 
 function App() {
     
       
   
   return (
-    <>
-      <p className="bg-red-500">Sprint3 en Proceso...</p>
-    </>
+    <ThemeProvider>
+      <CartProvider>
+        <MainContent />
+      </CartProvider>
+    </ThemeProvider>
   )
 }
+
+
 
 export default App
