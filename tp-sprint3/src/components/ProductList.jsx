@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const products = [
-  { id: 1, name: "Laptop", price: 1000000 },
-  { id: 2, name: "Auriculares", price: 20000 },
-  { id: 3, name: "Mouse", price: 10000 }
+  { id: 1, name: "Laptop", price: 1000 },
+  { id: 2, name: "Auriculares", price: 200 },
+  { id: 3, name: "Mouse", price: 50 }
 ];
 
 const ProductList = () => {
@@ -17,7 +17,7 @@ const ProductList = () => {
         {products.map((product) => (
           <div key={product.id} className="border p-4 rounded shadow-md">
             <h3 className="text-lg font-semibold">{product.name}</h3>
-            <p className="text-gray-600">${product.price}</p>
+            <p className="text-gray-600">${new Intl.NumberFormat("de-DE").format(product.price)}</p>
             <button
               onClick={() => addToCart(product)}
               className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"

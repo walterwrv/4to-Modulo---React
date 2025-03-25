@@ -15,7 +15,7 @@ const Cart = () => {
             <div key={item.id} className="border p-4 rounded shadow-md flex justify-between items-center">
               <div>
                 <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p className="text-gray-600">${item.price} x {item.quantity}</p>
+                <p className="text-gray-600">${new Intl.NumberFormat("de-DE").format(item.price)} x {item.quantity}</p>
               </div>
               <div className="flex items-center space-x-2">
                 <button
@@ -40,7 +40,7 @@ const Cart = () => {
               </div>
             </div>
           ))}
-          <h3 className="text-xl font-semibold mt-4">Total: ${totalPrice}</h3>
+          <h3 className="text-xl font-semibold mt-4">Total: ${new Intl.NumberFormat("de-DE").format(totalPrice)}</h3>
         </div>
       )}
     </div>
