@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const { cart, removeFromCart, updateQuantity, totalPrice } = useContext(CartContext);
+  const { cart, removeFromCart, removeAllFromCart, updateQuantity, totalPrice } = useContext(CartContext);
 
   return (
     <div className="p-6">
@@ -41,6 +41,13 @@ const Cart = () => {
             </div>
           ))}
           <h3 className="text-xl font-semibold mt-4">Total: ${new Intl.NumberFormat("de-DE").format(totalPrice)}</h3>
+
+          <button
+            onClick={removeAllFromCart}
+            className="px-3 py-1 bg-gray-300 rounded"
+          >
+            Eliminar Carrito
+          </button>
         </div>
       )}
     </div>
