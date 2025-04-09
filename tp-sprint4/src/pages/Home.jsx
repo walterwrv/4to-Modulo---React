@@ -28,7 +28,10 @@ const Home = () => {
       const res = await getCharactersByName(''); // sin nombre = trae todos
       setCharacters(res);
     } catch (error) {
-      console.error('Error al cargar personajes:', error);
+      console.error('Error al cargar personajes: Error', error.status);
+      toast.error(`Hubo un error. Código de estado: ${error}`, {
+        autoClose: 3000, // Auto-close after 5 seconds, for example
+      });
     } finally {
       setLoading(false);
     }
