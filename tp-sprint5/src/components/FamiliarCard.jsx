@@ -10,7 +10,7 @@ const FamiliarCard = ({ familiar }) => {
         className="w-32 h-32 object-cover rounded-full mb-4"
       />
       <h2 className="text-xl font-semibold">{familiar.name}</h2>
-      <p className="text-gray-500">{familiar.parentesco}</p>
+      <p className="text-gray-700">{familiar.parentesco}</p>
       <div className="mt-4 flex gap-2">
         <Link
           to={`/familiares/${familiar.id}`}
