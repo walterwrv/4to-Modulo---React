@@ -1,13 +1,15 @@
-import React from 'react';
-
-import './App.css'
+import { AppRouter } from './Router/AppRouter';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
-      <p className='bg-red-700'>TP5 en Proceso...</p>
+      <AppRouter />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }
 
 export default App;
+
