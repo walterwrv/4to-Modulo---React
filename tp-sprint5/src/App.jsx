@@ -5,8 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-      <AppRouter />
-      <ToastContainer position="top-right" autoClose={3000} />
+      <div className='bg-gray-900'>
+        <AppRouter />
+        <ToastContainer position="top-right" autoClose={3000} />
+      </div>
     </>
   );
 }

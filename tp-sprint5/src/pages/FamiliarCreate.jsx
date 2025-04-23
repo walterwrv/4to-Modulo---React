@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { api } from '../services/api';
 import { FamiliarContext } from '../context/FamiliarContext';
 
@@ -11,6 +11,7 @@ import { FamiliarContext } from '../context/FamiliarContext';
 const FamiliarCreate = () => {
 const { setFamiliares} = useContext(FamiliarContext);
   const navigate = useNavigate();
+  
   const {
     register,
     handleSubmit,
@@ -33,7 +34,7 @@ const { setFamiliares} = useContext(FamiliarContext);
   };
 
   return (
-    <section className="p-8 max-w-xl mx-auto">
+    <section className="p-8 max-w-xl mx-auto bg-gray-700">
       <h1 className="text-2xl font-bold mb-6">Agregar Nuevo Familiar</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -45,7 +46,7 @@ const { setFamiliares} = useContext(FamiliarContext);
           {...register('name', { required: 'Nombre es obligatorio' })}
           className="w-full p-2 border rounded-xl"
         />
-        {errors.nombre && <p className="text-red-500 text-sm">{errors.nombre.message}</p>}
+        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
 
         <input
           type="number"
@@ -53,10 +54,11 @@ const { setFamiliares} = useContext(FamiliarContext);
           {...register('age', {
             required: 'Edad es obligatoria',
             min: { value: 0, message: 'Edad inválida' },
+            max: {value: 120, message: 'Edad inválida'},
           })}
           className="w-full p-2 border rounded-xl"
         />
-        {errors.edad && <p className="text-red-500 text-sm">{errors.edad.message}</p>}
+        {errors.age && <p className="text-red-500 text-sm">{errors.age.message}</p>}
 
         <input
           type="text"
@@ -71,16 +73,22 @@ const { setFamiliares} = useContext(FamiliarContext);
         <input
           type="url"
           placeholder="URL de la foto"
-          {...register('avatar')}
+          {...register('avatar', { required: 'Imagen es obligatorio' })}
           className="w-full p-2 border rounded-xl"
         />
+        {errors.avatar && <p className="text-red-500 text-sm">{errors.avatar.message}</p>}
 
-        <button
-          type="submit"
-          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl"
-        >
-          Crear Familiar
-        </button>
+        <div className="mt-6 flex justify-center gap-4">
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+          >
+            Crear Familiar
+          </button>
+          <Link to="/" className="bg-gray-500 px-4 py-2 text-white rounded">
+              Volver
+          </Link>
+        </div>
       </form>
     </section>
   );

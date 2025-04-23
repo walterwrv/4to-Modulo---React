@@ -21,7 +21,7 @@ const FamiliarDetail = () => {
     fetchFamiliar();
   }, [id]);
 
-  if (!familiar) return <p className="text-center mt-10">Cargando...</p>;
+  if (!familiar) return <p className="text-center mt-10 text-white text-2xl">Cargando...</p>;
 
   const handleDelete = async (id, setFamiliares) => {
     const result = await Swal.fire({
@@ -43,7 +43,7 @@ const FamiliarDetail = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow rounded">
+    <div className="max-w-xl mx-auto mt-10 p-6 bg-gray-300 shadow rounded">
         <img src={familiar.avatar} alt={familiar.name} className="w-64 h-64  object-cover rounded-full mx-auto" />
         <h2 className="text-2xl font-bold text-center mt-4">{familiar.name}</h2>
         <p className="text-center">Edad: {familiar.age}</p>

@@ -1,7 +1,7 @@
 // src/pages/FamiliarEdit.jsx
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
 import { FamiliarContext } from '../context/FamiliarContext';
@@ -51,7 +51,7 @@ const FamiliarEdit = () => {
   };
 
   return (
-    <section className="p-8 max-w-xl mx-auto">
+    <section className="p-8 max-w-xl mx-auto bg-gray-300">
       <h1 className="text-2xl font-bold mb-6">Editar Familiar</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -93,13 +93,17 @@ const FamiliarEdit = () => {
           />
           {errors.avatar && <p className="text-red-500 text-sm">{errors.avatar.message}</p>}
         </div>
-
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Guardar cambios
-        </button>
+        <div className="mt-6 flex justify-center gap-4">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Guardar cambios
+          </button>
+          <Link to="/" className="bg-gray-500 px-4 py-2 text-white rounded">
+            Volver
+          </Link>
+        </div>
       </form>
     </section>
   );

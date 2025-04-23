@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FamiliarCard = ({ familiar }) => {
   return (
-    <div className="bg-white shadow-md rounded-2xl p-4 flex flex-col items-center text-center">
+    <div className="bg-gray-300 shadow-md rounded-2xl p-4 flex flex-col items-center text-center">
       <img
         src={familiar.avatar}
         alt={familiar.name}
