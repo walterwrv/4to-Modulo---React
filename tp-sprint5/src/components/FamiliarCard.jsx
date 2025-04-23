@@ -11,7 +11,6 @@ const FamiliarCard = ({ familiar }) => {
       />
       <h2 className="text-xl font-semibold">{familiar.name}</h2>
       <p className="text-gray-500">{familiar.parentesco}</p>
-      <p className="text-gray-600">Edad: {familiar.age}</p>
       <div className="mt-4 flex gap-2">
         <Link
           to={`/familiares/${familiar.id}`}
