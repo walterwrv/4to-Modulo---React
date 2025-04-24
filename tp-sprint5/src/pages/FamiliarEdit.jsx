@@ -11,7 +11,7 @@ const FamiliarEdit = () => {
   const { setFamiliares} = useContext(FamiliarContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
   // Traer los datos actuales del familiar
   useEffect(() => {
@@ -51,7 +51,7 @@ const FamiliarEdit = () => {
   };
 
   return (
-    <section className="p-8 max-w-xl mx-auto bg-gray-300">
+    <section className="p-8 max-w-xl mx-auto bg-white">
       <h1 className="text-2xl font-bold mb-6">Editar Familiar</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -68,7 +68,9 @@ const FamiliarEdit = () => {
           <label className="block font-medium">Edad</label>
           <input
             type="number"
-            {...register('age', { required: 'Este campo es obligatorio', min: 0 })}
+            {...register('age', { required: 'Este campo es obligatorio', 
+              min: {value: 0, message: 'Edad inválida'},
+              max: {value: 120, message: 'Edad inválida'}, })}
             className="w-full p-2 border rounded"
           />
           {errors.age && <p className="text-red-500 text-sm">{errors.age.message}</p>}

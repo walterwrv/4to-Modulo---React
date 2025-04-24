@@ -8,11 +8,13 @@ import { FamiliarProvider } from './context/FamiliarContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <FamiliarProvider>
+    
       <BrowserRouter>
-        <App />
+        <FamiliarProvider>
+          <App />
+        </FamiliarProvider>
       </BrowserRouter>
-    </FamiliarProvider>
+
   </React.StrictMode>
 );
 

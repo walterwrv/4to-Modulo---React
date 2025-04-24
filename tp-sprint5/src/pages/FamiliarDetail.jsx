@@ -43,7 +43,7 @@ const FamiliarDetail = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-gray-300 shadow rounded">
+    <div className="max-w-xl mx-auto mt-10 p-6 bg-gray-400 shadow rounded">
         <img src={familiar.avatar} alt={familiar.name} className="w-64 h-64  object-cover rounded-full mx-auto" />
         <h2 className="text-2xl font-bold text-center mt-4">{familiar.name}</h2>
         <p className="text-center">Edad: {familiar.age}</p>

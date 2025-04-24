@@ -10,7 +10,7 @@ const FamiliarList = () => {
   const { familiares } = useContext(FamiliarContext);
 
   return (
-    <section className="p-8 max-w-6xl mx-auto bg-gray-700">
+    <section className="p-8 max-w-6xl mx-auto bg-white">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Lista de Familiares</h1>
         <Link

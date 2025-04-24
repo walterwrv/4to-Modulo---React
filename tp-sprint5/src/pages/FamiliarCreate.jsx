@@ -9,9 +9,9 @@ import { FamiliarContext } from '../context/FamiliarContext';
 
 
 const FamiliarCreate = () => {
-const { setFamiliares} = useContext(FamiliarContext);
-  const navigate = useNavigate();
   
+  const { setFamiliares, createFamiliar} = useContext(FamiliarContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -34,10 +34,10 @@ const { setFamiliares} = useContext(FamiliarContext);
   };
 
   return (
-    <section className="p-8 max-w-xl mx-auto bg-gray-700">
+    <section className="p-8 max-w-xl mx-auto bg-white">
       <h1 className="text-2xl font-bold mb-6">Agregar Nuevo Familiar</h1>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(createFamiliar)}
         className="space-y-4 bg-white p-6 rounded-2xl shadow"
       >
         <input
