@@ -32,7 +32,7 @@ const FamiliarEdit = () => {
     };
 
     fetchFamiliar();
-  }, [id, setValue]);
+  }, []);
 
   // Enviar los datos actualizados
   const onSubmit = async data => {
